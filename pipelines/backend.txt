@@ -1,0 +1,20 @@
+
+trigger:
+- main
+
+variables:
+  buildConfiguration: 'Release'
+pool:
+  name: Default
+steps:
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    publishWebProjects: true
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Azure for Students(6)(6b1cd2e6-d8e6-49ca-a30e-6fadad07a1c4)'
+    appType: 'webApp'
+    appName: 'webapp-backend-service'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'

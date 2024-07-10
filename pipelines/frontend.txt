@@ -1,0 +1,25 @@
+
+trigger:
+- main
+
+pool:
+  name: Default
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '18.x'
+  displayName: 'Install Node.js'
+ 
+- script: |
+    npm run build
+  displayName: 'Fix vulnerabilities, install dependencies, and build'
+ 
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Azure for Students (6b1cd2e6-d8e6-49ca-a30e-6fadad07a1c4)'
+    appType: 'webApp'
+    WebAppName: 'webapp-frontend-service'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/build'
+ 

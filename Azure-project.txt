@@ -1,0 +1,14 @@
+Azure app service:
+App Service is a Platform as a Service (PaaS) offering from Microsoft. We use it to host web applications, REST API's and backend services for mobile applications.
+
+Azure application Gateway:
+Azure Application Gateway est un équilibreur de charge de trafic web (couche OSI 7) qui vous permet de gérer le trafic vers vos applications web.Composed from:
+- Static Ip
+- HTTP/HTTPS listener
+- Routing rules	
+- Backend pool(contains different types of backends e.g. Azure app service,virtual machines,scale sets,...)
+- WAF
+
+
+Note:
+ az mysql server list-skus --location northeurope -o table : to list all skus of MySQL server service based on region

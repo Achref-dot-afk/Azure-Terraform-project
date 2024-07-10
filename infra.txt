@@ -1,0 +1,5 @@
+Azure app service instance
+resource group
+azure sql db 
+azure virtual net
+app Gateway and waf
